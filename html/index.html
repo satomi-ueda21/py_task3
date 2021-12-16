@@ -1,17 +1,27 @@
-<html>
-    <head>
-        <title>eelテスト</title>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+   <title>eelテスト</title>
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
         <h2>eelテスト</h2>
-            <input type="text" name="keyword">
-            <input type="button" name="search-btn" value="検索">
-            
+        <form action="#" method="post" name="form1">
+            <input type="text" name="keyword" id="keyword">
+            <button id="search" name="search">検索</button>
+        </form>
+        <textarea name="log-area" id="log-area" cols="30" rows="10"></textarea>
+
         <script type="text/javascript" src="./eel.js"></script>
         <script>
             search.addEventListener('click', () => {
-
+                if(document.forms.form1.keyword.value == ""){
+                    alert("検索キーワードを入力してください")
+                }
             })
 
             eel.expose(view_log_js)
@@ -20,3 +30,4 @@
         </script>
     </body>
 </html>
+
