@@ -18,9 +18,16 @@
 
         <script type="text/javascript" src="./eel.js"></script>
         <script>
+            let word = document.forms.form1
             search.addEventListener('click', () => {
-                if(document.forms.form1.keyword.value == ""){
-                    alert("検索キーワードを入力してください")
+                if(word.keyword.value != ""){
+                    async function AddToTextarea(){
+                        let val = await eel.kimetsu_search(word.keyword.value);
+                        document.getElementById('log-area').value += val + "\n"
+                    }
+                    AddToTextarea();
+                }else{
+                    alert("検索キーワードを入力してください");
                 }
             })
 
