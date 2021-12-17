@@ -16,16 +16,13 @@
         </form>
         <textarea name="log-area" id="log-area" cols="30" rows="10"></textarea>
 
-        <script type="text/javascript" src="./eel.js"></script>
+        <script type="text/javascript" src="../venv/Lib/site-packages/eel/eel.js"></script>
         <script>
             let word = document.forms.form1
-            search.addEventListener('click', () => {
+            search.addEventListener('click', async() => {
                 if(word.keyword.value != ""){
-                    async function AddToTextarea(){
-                        let val = await eel.kimetsu_search(word.keyword.value);
-                        document.getElementById('log-area').value += val + "\n"
-                    }
-                    AddToTextarea();
+                    let val = await eel.kimetsu_search(word.keyword.value)();
+                    console.log(val)
                 }else{
                     alert("検索キーワードを入力してください");
                 }
@@ -33,6 +30,7 @@
 
             eel.expose(view_log_js)
             function view_log_js(text){
+                document.getElementById('log-area').value += text + "\n";
             }
         </script>
     </body>
