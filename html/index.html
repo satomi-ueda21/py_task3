@@ -11,17 +11,21 @@
     <body>
         <h2>eelテスト</h2>
         <div>
-            <input type="text" name="keyword" id="keyword">
+            CSVファイル保存先：<input type="text" name="file-path" id="file-path"><br>
+            CSVファイル名：<input type="text" name="file-name" id="file-name"><br>
+            検索キーワード：<input type="text" name="keyword" id="keyword">
             <button id="search" name="search">検索</button>
         </div>
         <textarea name="log-area" id="log-area" cols="30" rows="10"></textarea>
 
         <script type="text/javascript" src="eel.js"></script>
         <script>
+            let file_path = document.getElementById('file-path')
+            let file_name = document.getElementById('file-name')
             let word = document.getElementById('keyword')
             search.addEventListener('click', async () => {
                 if(word.value != ""){
-                    let val = await eel.kimetsu_search(word.value)();
+                    let val = await eel.kimetsu_search(word.value, file_path.value, file_name.value)();
                     console.log(val)
                 }else{
                     alert("検索キーワードを入力してください");
