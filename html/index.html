@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-   <title>eelテスト</title>
+    <title>eelテスト</title>
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
         <h2>eelテスト</h2>
-        <form action="#" method="post" name="form1">
+        <div>
             <input type="text" name="keyword" id="keyword">
             <button id="search" name="search">検索</button>
-        </form>
+        </div>
         <textarea name="log-area" id="log-area" cols="30" rows="10"></textarea>
 
-        <script type="text/javascript" src="../venv/Lib/site-packages/eel/eel.js"></script>
+        <script type="text/javascript" src="eel.js"></script>
         <script>
-            let word = document.forms.form1
-            search.addEventListener('click', async() => {
-                if(word.keyword.value != ""){
-                    let val = await eel.kimetsu_search(word.keyword.value)();
+            let word = document.getElementById('keyword')
+            search.addEventListener('click', async () => {
+                if(word.value != ""){
+                    let val = await eel.kimetsu_search(word.value)();
                     console.log(val)
                 }else{
                     alert("検索キーワードを入力してください");
@@ -35,4 +35,3 @@
         </script>
     </body>
 </html>
-
