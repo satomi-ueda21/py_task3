@@ -39,11 +39,11 @@ def kimetsu_search(word, file_path, file_name):
 
     # 検索
     if word in source:
-        print("『{}』はいます".format(word))
+        #print("『{}』はいます".format(word))
         eel.view_log_js("『{}』はいます".format(word))
         val = True
     else:
-        print("『{}』はいません".format(word))
+        #print("『{}』はいません".format(word))
         eel.view_log_js("『{}』はいません".format(word))
         eel.view_log_js("『{}』を追加します".format(word))
         val = False
@@ -62,6 +62,6 @@ def kimetsu_search(word, file_path, file_name):
         df.to_csv(new_file, encoding="utf_8-sig")
     else:
         df.to_csv("./source.csv", encoding="utf_8-sig")
-    print(source)
+    #print(source)
 
 
